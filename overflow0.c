@@ -12,8 +12,8 @@ void buffer_overflow(const char * str)
 
 int main(int argc, char ** argv)
 {
-    char aString[512];
     FILE *fs;
+    char aString[512];
 
     if (argc != 2 ||  argv[1] == NULL) {
         fprintf(stderr, "Error: First argument is path to egg\n"); exit(1);
