@@ -5,3 +5,5 @@ testShellCode.x: testShellCode.c
 overflow0: overflow0.c
 	gcc -m32 -g -z execstack -fno-stack-protector overflow0.c -o overflow0
 
+clean:
+	rm -f overflow0 testShellCode.x
