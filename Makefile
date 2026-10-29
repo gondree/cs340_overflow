@@ -1,9 +1,17 @@
+CC = gcc
+CFLAGS = -m32 -g -O0 -fno-stack-protector -fno-pie -no-pie -fno-omit-frame-pointer
+LDFLAGS = -z execstack
 
-testShellCode.x: testShellCode.c
-	gcc -m32 -g -z execstack -fno-stack-protector testShellCode.c -o testShellCode.x
+all: memory stack overflow0
+
+memory: memory.c
+	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
+
+stack: stack.c
+	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
 
 overflow0: overflow0.c
-	gcc -m32 -g -z execstack -fno-stack-protector overflow0.c -o overflow0
+	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
 
 clean:
-	rm -f overflow0 testShellCode.x
+	rm -f memory stack overflow0
