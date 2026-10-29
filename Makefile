@@ -4,6 +4,9 @@ LDFLAGS = -z execstack
 
 all: memory stack overflow0
 
+testShellCode.x: testShellCode.c
+	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
+
 memory: memory.c
 	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
 
